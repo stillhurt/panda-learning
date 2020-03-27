@@ -16,8 +16,8 @@ class Mydriver:
                 self.options.binary_location = "./chrome/chrome.exe"
             elif os.path.exists("/opt/google/chrome/chrome"):  # linux
                 self.options.binary_location = "/opt/google/chrome/chrome"
-            if noimg:
-                self.options.add_argument('blink-settings=imagesEnabled=false')  # 不加载图片, 提升速度
+            # if noimg:
+            #     self.options.add_argument('blink-settings=imagesEnabled=false')  # 不加载图片, 提升速度
             if nohead:
                 self.options.add_argument('--headless')
                 self.options.add_argument('--disable-extensions')
@@ -54,7 +54,7 @@ class Mydriver:
 
     def login(self):
         print("正在打开二维码登陆界面,请稍后")
-        self.driver.get("https://pc.xuexi.cn/points/login.html?ref=https%3A%2F%2Fwww.xuexi.cn%2F")
+        self.driver.get("https://pc.xuexi.cn/points/login.html?ref=https://www.xuexi.cn/index.html")
         try:
             remover = WebDriverWait(self.driver, 30, 0.2).until(
                 lambda driver: driver.find_element_by_class_name("redflagbox"))
